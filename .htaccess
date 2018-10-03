@@ -1,0 +1,25 @@
+Header always set Access-Control-Allow-Origin "http://www.leo.dev.com"
+
+<IfModule mod_rewrite.c>
+RewriteEngine on
+# RewriteBase /
+RewriteBase /cadastro_produtos
+
+# Add www in the start of URL if user leave
+RewriteCond %{HTTP_HOST} !^www\.
+RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [R=301,L]
+
+# Prevent CI index.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule .* index.php/$0 [PT,L]
+
+# Prevent user access to the CI system folder.
+RewriteCond %{REQUEST_URI} ^system.*
+RewriteRule ^(.*)$ /index.php?/$1 [L]
+
+# Prevent user access to the CI application folder
+RewriteCond %{REQUEST_URI} ^application.*
+RewriteRule ^(.*)$ /index.php?/$1 [L]
+
+</IfModule>
