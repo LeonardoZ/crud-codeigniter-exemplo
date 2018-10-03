@@ -9,7 +9,7 @@ class Produtos_model extends CI_Model
         $this->db->select('p.*, c.descricao as categoria_descricao');
         $this->db->from('produtos p');
         $this->db->join('categorias c', 'c.id = p.categoria_id');
-        return $this->db->get()->result_array();  
+        return $this->db->get()->result_array();
     }
 
     public function getProduto($id)
@@ -34,7 +34,8 @@ class Produtos_model extends CI_Model
             'categoria_id' => $dados['categoria_id'],
         ));
         $this->db->where(array('id' => $id));
-        return $this->db->update('produtos');
+        $this->db->update('produtos');
+        return $this->db->affected_rows();
     }
 
     public function delete($id)
@@ -44,7 +45,7 @@ class Produtos_model extends CI_Model
         $error = $this->db->error();
         if ($error['code'] == 1451) {
             throw new Exception('Produto não pode ser removido.
-            Existem outros registros que dependem dessa produto. 
+            Existem outros registros que dependem dessa produto.
             Para remover, você precisar deletar todos os itens dependentes
             desse produto.');
         }

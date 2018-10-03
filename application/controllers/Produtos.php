@@ -62,7 +62,7 @@ class Produtos extends CI_Controller
 
     public function atualizar()
     {
-        $this->form_validation->set_rules('nome', 'Nome', 'required|max_length[130]|is_unique[produtos.nome]');
+        $this->form_validation->set_rules('nome', 'Nome', 'required|max_length[130]');
         $this->form_validation->set_rules('valor_compra', 'Valor de compra', 'required|decimal');
         $this->form_validation->set_rules('valor_venda', 'Valor de venda', 'required|decimal');
         $this->form_validation->set_rules('categoria_id', 'Categoria', 'required');

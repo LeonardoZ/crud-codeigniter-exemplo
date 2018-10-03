@@ -10,5 +10,3 @@ Para executar o projeto você pode:
     + Execute no seu MySQL script sql/create-schema.sql (para criação do schema no banco de dados);
     + Altere os parâmetros de conexão no diretório application/database.php;
     + Troque em application/config.php a URL base do projeto;
-+ Executar com Docker-composer;
-    + Apenas execute em seu terminal docker-compose up os arquivos em docker/*;
