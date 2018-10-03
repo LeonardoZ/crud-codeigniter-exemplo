@@ -1,4 +1,4 @@
-# Codeignider Explo CRUD
+# Codeignider CRUD Exemplo
 
 Exemplo da criação de um CRUD simples usando Codeigniter 3.x e MySQL.
 
